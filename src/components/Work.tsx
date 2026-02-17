@@ -155,7 +155,7 @@ export default function Work() {
                         fill
                         priority={isCenter}
                         className="object-cover"
-                        sizes="(max-width: 768px) 105vw, 760px"
+                        sizes="(max-width: 768px) 100vw, 760px"
                         quality={100}
                       />
                     </div>
