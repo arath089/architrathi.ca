@@ -206,7 +206,7 @@ export default function AboutTimeline({
     }
 
     // optional ScrollSmoother
-    let smoother: any;
+    let smoother: ScrollSmoother | null = null;
     if (tryScrollSmoother) {
       import("gsap/ScrollSmoother")
         .then((m) => {

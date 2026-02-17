@@ -98,8 +98,8 @@ function DotCloud({ seed = 1337 }: { seed?: number }) {
                 d.twinkle
                   ? ({
                       // strings avoid hydration issues
-                      ["--o0" as any]: `${d.o0}`,
-                      ["--o1" as any]: `${d.o1}`,
+                      ["--o0" as string]: `${d.o0}`,
+                      ["--o1" as string]: `${d.o1}`,
                       opacity: `${d.o0}`,
                       animation: `dotTwinkle ${d.dur}s ease-in-out ${d.delay}s infinite`,
                     } as React.CSSProperties)

@@ -20,8 +20,8 @@ export default function AuroraBG({ preset = "arctic" }: { preset?: Preset }) {
             radial-gradient( 800px 640px at 50% 115%, hsla(${c2} / .10), transparent 62%)
           `,
           filter: "saturate(110%) contrast(104%)",
-          ["--c1" as any]: `hsla(${c1} / .14)`,
-          ["--c2" as any]: `hsla(${c2} / .12)`,
+          ["--c1" as string]: `hsla(${c1} / .14)`,
+          ["--c2" as string]: `hsla(${c2} / .12)`,
         } as React.CSSProperties
       }
     >

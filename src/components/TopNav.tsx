@@ -2,10 +2,11 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import type { ComponentType, SVGProps } from "react";
 import type { Transition } from "motion";
 
 // --- icons (same as before) ---
-function IconHome(props: any) {
+function IconHome(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
       <path
@@ -17,7 +18,7 @@ function IconHome(props: any) {
     </svg>
   );
 }
-function IconSpark(props: any) {
+function IconSpark(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
       <path
@@ -29,7 +30,7 @@ function IconSpark(props: any) {
     </svg>
   );
 }
-function IconWork(props: any) {
+function IconWork(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
       <path
@@ -41,7 +42,7 @@ function IconWork(props: any) {
     </svg>
   );
 }
-function IconInfo(props: any) {
+function IconInfo(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
       <circle cx="12" cy="12" r="9" strokeWidth="1.8" />
@@ -49,7 +50,7 @@ function IconInfo(props: any) {
     </svg>
   );
 }
-function IconMail(props: any) {
+function IconMail(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
       <path
@@ -63,7 +64,11 @@ function IconMail(props: any) {
 }
 
 // --- links ---
-type Link = { href: string; label: string; icon: (props?: any) => JSX.Element };
+type Link = {
+  href: string;
+  label: string;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
+};
 const LINKS: Link[] = [
   { href: "#top", label: "Home", icon: IconHome },
   { href: "#what-i-do", label: "What I do", icon: IconSpark },

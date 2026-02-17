@@ -192,7 +192,9 @@ export default function Difference() {
           {PANELS.map((p, i) => (
             <div
               key={p.key}
-              ref={(el) => (itemRefs.current[i] = el)}
+              ref={(el) => {
+                itemRefs.current[i] = el;
+              }}
               className="difference-item"
             >
               {/* background image (no fade) */}

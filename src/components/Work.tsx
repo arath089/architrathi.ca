@@ -39,7 +39,12 @@ export default function Work() {
     return () => mq.removeEventListener("change", update);
   }, []);
 
-  const spring = { type: "spring", stiffness: 220, damping: 28, mass: 0.9 };
+  const spring = {
+    type: "spring" as const,
+    stiffness: 220,
+    damping: 28,
+    mass: 0.9,
+  };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -68,7 +73,7 @@ export default function Work() {
   const justSwipedRef = useRef(false);
 
   const onCardDragEnd = (
-    _: any,
+    _: MouseEvent | PointerEvent,
     info: { offset: { x: number }; velocity: { x: number } }
   ) => {
     if (open) return;

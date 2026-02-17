@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { useMemo, useRef } from "react";
 
 type Brand = { name: string; src: string; href: string };
@@ -86,7 +86,7 @@ function TapeRow({
   widthClass,
 }: {
   items: Brand[];
-  x: any; // MotionValue<number>
+  x: MotionValue<number>; // MotionValue<number>
   angle: number;
   yClass: string;
   widthClass: string;
