@@ -306,15 +306,13 @@ export default function Difference() {
           right: 16px;
           top: 25%;
           opacity: 0;
-          transform: translateY(8px);
-          transition: opacity 260ms ease, transform 260ms ease;
         }
+
         .difference-item.is-active .collapsed-label {
           opacity: 0;
         }
         .difference-item.is-active .expanded-copy {
           opacity: 1;
-          transform: translateY(0);
         }
       `}</style>
     </section>

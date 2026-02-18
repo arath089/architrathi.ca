@@ -47,7 +47,8 @@ export default function TrustedTapes({
         </h2>
       </div>
 
-      <div className="relative pointer-events-none mt-54 isolate">
+      <div className="relative w-full pointer-events-none mt-54 isolate overflow-x-clip">
+        <div className="absolute inset-0 overflow-visible"></div>
         <TapeRow
           items={row}
           x={xA}
@@ -62,18 +63,18 @@ export default function TrustedTapes({
           yClass="bottom-8 md:bottom-12"
           widthClass="w-[360vw] md:w-[190vw]"
         />
-
-        {/* side fade to avoid hard cuts */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            maskImage:
-              "linear-gradient(to right, transparent, black 7%, black 93%, transparent)",
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent, black 7%, black 93%, transparent)",
-          }}
-        />
       </div>
+
+      {/* side fade to avoid hard cuts */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent, black 7%, black 93%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 7%, black 93%, transparent)",
+        }}
+      />
     </section>
   );
 }
