@@ -11,12 +11,6 @@ type Props = {
   cover: string;
 };
 
-/*
-  TODO: drop a real image into /public/work/mudwtr/ - the layout expects:
-    /work/mudwtr/transitions-1.png  (wide, page transitions section)
-  (carousel + Nourish sections use screen-recording videos already in place;
-   sale automation section uses an inline SVG diagram, no image needed)
-*/
 
 export default function MudWtr({ cover }: Props) {
   return (
@@ -128,16 +122,6 @@ export default function MudWtr({ cover }: Props) {
             orchestration, the storefront stays fast under real-world
             conditions, not just in lab scores.
           </p>
-
-          {/* Single wide image */}
-          <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
-            <Image
-              src="/work/mudwtr/transitions-1.png"
-              alt=""
-              fill
-              className="object-cover"
-            />
-          </div>
         </section>
 
         {/* Nourish Re-architecture */}
