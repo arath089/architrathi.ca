@@ -134,12 +134,13 @@ export default function MudWtr({ cover }: Props) {
             conditions, not just in lab scores.
           </p>
 
-          {/* Barba.js wordmark (official SVG from barba.js.org) */}
-          <div className="p-10 border rounded-2xl bg-white/5 border-white/10 md:p-16">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/work/mudwtr/barba.svg"
+          {/* Barba.js wordmark */}
+          <div className="overflow-hidden border rounded-2xl border-white/10">
+            <Image
+              src="/work/mudwtr/barba.png"
               alt="Barba.js logo"
+              width={1240}
+              height={410}
               className="w-full h-auto"
             />
           </div>
