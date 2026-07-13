@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import ParticleBackdrop from "@/components/ParticleBackdrop";
 
 import TopNav from "@/components/TopNav";
@@ -26,6 +27,7 @@ export default function RootLayout({
         />
         <TopNav />
         <main className="relative">{children}</main>
+        <Analytics />
       </body>
     </html>
   );
