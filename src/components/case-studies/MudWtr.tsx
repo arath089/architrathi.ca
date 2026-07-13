@@ -12,13 +12,10 @@ type Props = {
 };
 
 /*
-  TODO: drop real images into /public/work/mudwtr/ - the layout expects:
-    /work/mudwtr/carousel-1.png     (wide, carousel delay section)
+  TODO: drop a real image into /public/work/mudwtr/ - the layout expects:
     /work/mudwtr/transitions-1.png  (wide, page transitions section)
-    /work/mudwtr/nourish-1.png      (3-up grid, Nourish section)
-    /work/mudwtr/nourish-2.png      (3-up grid, Nourish section)
-    /work/mudwtr/nourish-3.png      (3-up grid, Nourish section)
-  (sale automation section uses an inline SVG diagram, no image needed)
+  (carousel + Nourish sections use screen-recording videos already in place;
+   sale automation section uses an inline SVG diagram, no image needed)
 */
 
 export default function MudWtr({ cover }: Props) {
@@ -104,13 +101,16 @@ export default function MudWtr({ cover }: Props) {
             <Metric label="Method" value="Profiling, not guessing" />
           </div>
 
-          {/* Single wide image */}
-          <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
-            <Image
-              src="/work/mudwtr/carousel-1.png"
-              alt=""
-              fill
-              className="object-cover"
+          {/* Screen recording: carousel initializing instantly */}
+          <div className="rounded-2xl overflow-hidden">
+            <video
+              className="w-full h-auto"
+              src="/work/mudwtr/performance.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-label="Screen recording of the product page carousel becoming interactive instantly after the fix"
             />
           </div>
         </section>
@@ -170,10 +170,17 @@ export default function MudWtr({ cover }: Props) {
             <Metric label="Axes" value="Blend x Size x Subscription" />
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            <ImageBlock src="/work/mudwtr/nourish-1.png" />
-            <ImageBlock src="/work/mudwtr/nourish-2.png" />
-            <ImageBlock src="/work/mudwtr/nourish-3.png" />
+          {/* Screen recording: Nourish variant selection flow */}
+          <div className="rounded-2xl overflow-hidden">
+            <video
+              className="w-full h-auto"
+              src="/work/mudwtr/nourish.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-label="Screen recording of the Nourish variant selection flow across blend, size, and subscription"
+            />
           </div>
         </section>
 
@@ -335,10 +342,3 @@ function Metric({ label, value }: { label: string; value: string }) {
   );
 }
 
-function ImageBlock({ src }: { src: string }) {
-  return (
-    <div className="relative w-full h-[450px] rounded-2xl overflow-hidden">
-      <Image src={src} alt="" fill className="object-cover" />
-    </div>
-  );
-}
