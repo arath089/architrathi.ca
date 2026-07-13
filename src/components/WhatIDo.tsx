@@ -51,14 +51,17 @@ export default function WhatIDo() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.45, delay: i * 0.05 }}
-            className="relative p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.35)] hover:bg-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden"
           >
-            {/* subtle glass light reflection */}
-            <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-60" />
+            {/* animated opacity lives on the plain <li> above; keeping it off
+                this backdrop-filter element avoids compositing flicker */}
+            <div className="relative h-full p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.35)] hover:bg-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden">
+              {/* subtle glass light reflection */}
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-60" />
 
-            <div className="relative z-10">
-              <h4 className="text-lg font-semibold">{it.title}</h4>
-              <p className="mt-3 leading-relaxed text-zinc-300">{it.body}</p>
+              <div className="relative z-10">
+                <h4 className="text-lg font-semibold">{it.title}</h4>
+                <p className="mt-3 leading-relaxed text-zinc-300">{it.body}</p>
+              </div>
             </div>
           </motion.li>
         ))}
