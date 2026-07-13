@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const TARGET = "Archit Rathi";
 const LETTERS =
@@ -12,6 +13,7 @@ export default function AnimatedName({
   loopEvery?: number;
 }) {
   const reduce = useReducedMotion();
+  const isMobile = useIsMobile();
   const [text, setText] = useState(TARGET);
   const rafRef = useRef<number | null>(null);
   const timerRef = useRef<number | null>(null);
@@ -21,25 +23,33 @@ export default function AnimatedName({
     const chars = TARGET.split("");
     const isLetter = chars.map((c) => c !== " ");
     const total = isLetter.filter(Boolean).length;
+    let frame = 0;
 
     const tick = (t: number) => {
       const p = Math.min((t - start) / duration, 1);
-      let locked = 0;
-      const next = chars
-        .map((c) => {
-          if (c === " ") return " ";
-          if (locked < Math.floor(total * p)) {
-            locked++;
-            return c;
-          }
-          let rnd = LETTERS[(Math.random() * LETTERS.length) | 0];
-          if (rnd === c) rnd = LETTERS[(Math.random() * LETTERS.length) | 0];
-          return rnd;
-        })
-        .join("");
-      setText(next);
-      if (p < 1) rafRef.current = requestAnimationFrame(tick);
-      else setText(TARGET);
+      if (p >= 1) {
+        setText(TARGET); // always land exactly on the real name
+        return;
+      }
+      // paint every 2nd frame (~30fps) — a scramble reads identically
+      // and this halves the repaints of the gradient-clipped text
+      if (frame++ % 2 === 0) {
+        let locked = 0;
+        const next = chars
+          .map((c) => {
+            if (c === " ") return " ";
+            if (locked < Math.floor(total * p)) {
+              locked++;
+              return c;
+            }
+            let rnd = LETTERS[(Math.random() * LETTERS.length) | 0];
+            if (rnd === c) rnd = LETTERS[(Math.random() * LETTERS.length) | 0];
+            return rnd;
+          })
+          .join("");
+        setText(next);
+      }
+      rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
   }
@@ -47,16 +57,18 @@ export default function AnimatedName({
   useEffect(() => {
     if (reduce) return;
     scrambleOnce();
-    const loop = () => {
-      scrambleOnce();
-      timerRef.current = window.setTimeout(loop, loopEvery);
-    };
-    timerRef.current = window.setTimeout(loop, loopEvery);
-    return () => {
+    const cleanup = () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [reduce, loopEvery]);
+    if (isMobile) return cleanup; // one scramble on mount, no loop
+    const loop = () => {
+      if (!document.hidden) scrambleOnce(); // skip while tab is hidden
+      timerRef.current = window.setTimeout(loop, loopEvery);
+    };
+    timerRef.current = window.setTimeout(loop, loopEvery);
+    return cleanup;
+  }, [reduce, loopEvery, isMobile]);
 
   // split current text at the first space so we can inject a responsive <br />
   const spaceIdx = text.indexOf(" ");
@@ -82,11 +94,17 @@ export default function AnimatedName({
           backgroundSize: "200% 200%",
           overflow: "hidden",
         }}
+        // backgroundPosition is not compositable: the infinite shimmer repaints
+        // the clipped text every frame, so it stays desktop-only
         animate={
-          reduce ? {} : { backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }
+          reduce || isMobile
+            ? {}
+            : { backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }
         }
         transition={
-          reduce ? {} : { duration: 12, repeat: Infinity, ease: "easeInOut" }
+          reduce || isMobile
+            ? {}
+            : { duration: 12, repeat: Infinity, ease: "easeInOut" }
         }
         aria-label={TARGET}
       >
