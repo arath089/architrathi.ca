@@ -90,27 +90,6 @@ export default function Hiya({ cover }: Props) {
             removing <b>a full step</b> from the primary purchase journey.
           </p>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            <Metric label="Scope" value="Highest-traffic page" />
-            <Metric label="Architecture" value="Reusable card components" />
-            <Metric label="Key Feature" value="Inline subscription ATC" />
-          </div>
-
-          {/* Single wide image */}
-          <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
-            <Image
-              src="/work/hiya/collection-1.png"
-              alt=""
-              fill
-              className="object-cover"
-            />
-          </div>
-        </section>
-
-        {/* A/B/C Test Infrastructure */}
-        <section className="space-y-12">
-          <h2 className="text-3xl font-semibold">A/B/C Test Infrastructure</h2>
-
           <p className="leading-relaxed">
             Rather than shipping one opinionated design, I built the page as{" "}
             <b>configurable test infrastructure</b> supporting simultaneous{" "}
@@ -125,9 +104,22 @@ export default function Hiya({ cover }: Props) {
           </p>
 
           <div className="grid gap-6 md:grid-cols-3">
+            <Metric label="Scope" value="Highest-traffic page" />
+            <Metric label="Key Feature" value="Inline subscription ATC" />
             <Metric label="Variants" value="A/B/C simultaneous" />
             <Metric label="Tooling" value="Intelligems" />
             <Metric label="Experiments Run" value="100+ across brands" />
+            <Metric label="Architecture" value="Reusable card components" />
+          </div>
+
+          {/* Single wide image */}
+          <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
+            <Image
+              src="/work/hiya/collection-1.png"
+              alt=""
+              fill
+              className="object-cover"
+            />
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
