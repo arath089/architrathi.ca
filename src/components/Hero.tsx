@@ -193,11 +193,12 @@ export default function Hero() {
 
             {/* Short personal intro */}
             <p className="max-w-2xl mt-6 text-base text-white md:text-lg">
-              I’m a Software Developer who likes making interfaces feel
-              effortless. I build Shopify storefronts with Liquid, TypeScript,
-              and Tailwind, with purposeful motion. Currently working at The
-              Beyond Group: recent work with clients like Our Place, Olipop,
-              MUDWTR, and Hu Kitchen. Based in Vancouver, Canada.
+              I’m a Frontend Engineer who likes making interfaces feel
+              effortless. I build fast, accessible web experiences with React,
+              TypeScript, and Tailwind, with purposeful motion. Over 4+ years
+              at The Beyond Group I shipped consumer storefronts for brands
+              like Our Place, OLIPOP, MUDWTR, and Hu Kitchen. Based in
+              Vancouver, Canada.
             </p>
 
             {/* Cursive line */}

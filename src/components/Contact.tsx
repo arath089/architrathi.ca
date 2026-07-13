@@ -21,8 +21,8 @@ export default function Contact() {
         className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-6"
       >
         <p className="text-zinc-300">
-          I take on a small number of projects focused on impactful UX and
-          measurable outcomes.
+          Open to frontend engineering roles and select freelance projects
+          focused on impactful UX and measurable outcomes.
         </p>
         <div className="flex flex-wrap gap-3 mt-5">
           <a

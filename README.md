@@ -59,4 +59,4 @@ Live site:
 
 ## Contact
 
-If you're building or scaling a Shopify brand and need engineering depth — feel free to reach out.
+If you need frontend engineering depth for a consumer product or commerce brand, feel free to reach out.

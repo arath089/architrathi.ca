@@ -5,35 +5,6 @@ import gsap from "gsap";
 
 const PANELS = [
   {
-    key: "shopify",
-    label: "Shopify",
-    title: "Built for Shopify",
-    body: "Liquid-first with TypeScript where it helps. Upgrade-safe themes and maintainable ops.",
-    bullets: [
-      "Section schema your team can actually use",
-      "App embeds, cart & checkout extensions",
-      "Hydrogen/Storefront API for dynamic bits",
-      "Metafield strategy & content models",
-      "CI checks for theme quality & visual diffs",
-    ],
-    img: "/accordion/dev-4.jpg",
-  },
-  {
-    key: "a11y",
-    label: "A11y",
-    title: "Accessibility & Compliance",
-    body: "Inclusive flows that meet WCAG 2.2 AA and regional law (ADA, AODA, GDPR/CCPA) without adding friction.",
-    bullets: [
-      "Semantic landmarks & heading hierarchy",
-      "Logical focus order + visible focus rings",
-      "ARIA only where native semantics lack",
-      "Contrast verified and themable palettes",
-      "Screen-reader QA on VoiceOver/NVDA",
-      "Consent banners that store audit-proof signals",
-    ],
-    img: "/accordion/dev-1.jpg",
-  },
-  {
     key: "speed",
     label: "Speed",
     title: "Speed as a feature",
@@ -61,6 +32,35 @@ const PANELS = [
       "Orchestrated transitions with no layout shift",
     ],
     img: "/accordion/dev-3.jpg",
+  },
+  {
+    key: "a11y",
+    label: "A11y",
+    title: "Accessibility & Compliance",
+    body: "Inclusive flows that meet WCAG 2.2 AA and regional law (ADA, AODA, GDPR/CCPA) without adding friction.",
+    bullets: [
+      "Semantic landmarks & heading hierarchy",
+      "Logical focus order + visible focus rings",
+      "ARIA only where native semantics lack",
+      "Contrast verified and themable palettes",
+      "Screen-reader QA on VoiceOver/NVDA",
+      "Consent banners that store audit-proof signals",
+    ],
+    img: "/accordion/dev-1.jpg",
+  },
+  {
+    key: "shopify",
+    label: "Shopify",
+    title: "Commerce Platform Depth",
+    body: "Liquid-first with TypeScript where it helps. Upgrade-safe themes and maintainable ops.",
+    bullets: [
+      "Section schema your team can actually use",
+      "App embeds, cart & checkout extensions",
+      "Hydrogen/Storefront API for dynamic bits",
+      "Metafield strategy & content models",
+      "CI checks for theme quality & visual diffs",
+    ],
+    img: "/accordion/dev-4.jpg",
   },
 ] as const;
 

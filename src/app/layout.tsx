@@ -6,8 +6,9 @@ import ParticleBackdrop from "@/components/ParticleBackdrop";
 import TopNav from "@/components/TopNav";
 
 export const metadata: Metadata = {
-  title: "Archit Rathi — Frontend & Shopify",
-  description: "Elegant, performant interfaces for commerce.",
+  title: "Archit Rathi | Frontend Engineer",
+  description:
+    "Frontend engineer building fast, accessible, high-converting web experiences with React, TypeScript, and Shopify.",
 };
 
 export default function RootLayout({

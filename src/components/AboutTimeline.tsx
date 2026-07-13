@@ -64,15 +64,15 @@ const EVENTS = [
     img: "/about/uottowa.jpg",
   },
   {
-    year: "2021 → now",
+    year: "2021 → 2026",
     title: "The Beyond Group",
-    body: "Started as an intern, now working as an Intermediate Software Developer. Building performant, accessible, and beautiful web experiences for high-growth brands.",
+    body: "Grew from apprentice to Intermediate Software Developer. Built performant, accessible, and beautiful web experiences for high-growth brands.",
     img: "/about/tbg-1.webp",
   },
   {
     year: "",
     title: "",
-    body: "..... and the journey continues at The Beyond Group! Always learning, always growing.",
+    body: "..... and the journey continues! Always learning, always building.",
     img: "/about/tbg.jpg",
   },
 ];

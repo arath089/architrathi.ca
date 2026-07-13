@@ -3,28 +3,28 @@ import { motion } from "motion/react";
 
 const items = [
   {
-    title: "Shopify Architecture",
-    body: "Custom themes, Liquid engineering, scalable sections, metafields & metaobjects, and structured content systems built for long-term maintainability.",
+    title: "Frontend Engineering",
+    body: "React, TypeScript, and modern JavaScript. Modular, testable component systems built with Storybook, design-system thinking, and long-term maintainability.",
   },
   {
-    title: "Advanced Frontend Interactions",
-    body: "Barba.js transitions, seamless PDP state switching, refined micro-interactions, and elevated UX patterns without sacrificing performance.",
+    title: "Advanced Interactions & Motion",
+    body: "Page transitions, seamless state switching, refined micro-interactions, and elevated UX patterns without sacrificing performance.",
   },
   {
     title: "Performance & Core Web Vitals",
     body: "Lighthouse optimization, advanced image strategies, script orchestration, reduced layout shift, and performance-first storefront builds.",
   },
   {
-    title: "Conversion & Revenue Systems",
-    body: "Cart optimization, subscription flows, dynamic upsells, A/B testing (Intelligems), and data-driven UI improvements focused on measurable impact.",
-  },
-  {
     title: "Accessibility & Compliance",
     body: "WCAG-focused semantic refactors, screen reader optimization, audit remediation (AudioEye / a360), and OneTrust consent implementations.",
   },
   {
-    title: "Launch & Scale Support",
-    body: "High-traffic celebrity launches, bundle systems, international expansion, and complex Shopify implementations built to scale.",
+    title: "Conversion & Revenue Systems",
+    body: "Cart optimization, subscription flows, dynamic upsells, A/B testing (Intelligems), and data-driven UI improvements focused on measurable impact.",
+  },
+  {
+    title: "Shopify & Commerce Platforms",
+    body: "Custom themes, Liquid engineering, metafields and structured content, checkout extensibility, and high-traffic launch support at scale.",
   },
 ];
 
@@ -37,9 +37,9 @@ export default function WhatIDo() {
         </h3>
 
         <p className="mt-3 text-2xl font-medium leading-snug md:text-3xl">
-          I build and scale high-performance Shopify storefronts for ambitious
-          DTC brands combining clean architecture, polished UX, and measurable
-          business impact.
+          I build fast, accessible, high-converting web experiences for
+          consumer brands, combining clean component architecture, polished UX,
+          and measurable business impact.
         </p>
       </div>
 
