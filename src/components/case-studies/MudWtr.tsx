@@ -12,13 +12,13 @@ type Props = {
 };
 
 /*
-  TODO: drop real images into /public/work/mudwtr/ — the layout expects:
+  TODO: drop real images into /public/work/mudwtr/ - the layout expects:
     /work/mudwtr/carousel-1.png     (wide, carousel delay section)
     /work/mudwtr/transitions-1.png  (wide, page transitions section)
     /work/mudwtr/nourish-1.png      (3-up grid, Nourish section)
     /work/mudwtr/nourish-2.png      (3-up grid, Nourish section)
     /work/mudwtr/nourish-3.png      (3-up grid, Nourish section)
-    /work/mudwtr/sale-1.png         (wide, sale automation section)
+  (sale automation section uses an inline SVG diagram, no image needed)
 */
 
 export default function MudWtr({ cover }: Props) {
@@ -85,6 +85,13 @@ export default function MudWtr({ cover }: Props) {
           </p>
 
           <p className="leading-relaxed">
+            The fix was found by <b>profiling, not guessing</b>: recording the
+            page load in the browser performance panel showed the carousel’s
+            setup work queued behind a framework tick it never needed to wait
+            for.
+          </p>
+
+          <p className="leading-relaxed">
             Removing the deferred initialization and letting the carousel mount
             directly <b>eliminated the delay entirely</b>, making the
             most-viewed component on the <b>highest-traffic page</b> feel
@@ -148,6 +155,15 @@ export default function MudWtr({ cover }: Props) {
             <b>cart</b>, and <b>selection logic</b>.
           </p>
 
+          <p className="leading-relaxed">
+            Variant-based logic meant a single product could express{" "}
+            <b>every purchasable permutation</b>, with selection state,
+            pricing, and cart behavior all derived from the chosen variant
+            instead of duplicated across near-identical products. That kept the
+            catalog clean for the team and the purchase flow{" "}
+            <b>predictable for the customer</b>.
+          </p>
+
           <div className="grid gap-6 md:grid-cols-3">
             <Metric label="Scope" value="PDP, cart, selection" />
             <Metric label="Model" value="Variant-based" />
@@ -166,11 +182,20 @@ export default function MudWtr({ cover }: Props) {
           <h2 className="text-3xl font-semibold">Sitewide Sale Automation</h2>
 
           <p className="leading-relaxed">
-            Sale launches previously required <b>hours of manual site edits</b>{" "}
-            under time pressure. I built a <b>one-switch automation system</b>{" "}
-            that conditionally applies all product, collection, pricing, and UI
-            changes across the application, cutting launch and takedown from
-            hours to <b>minutes</b>.
+            Sale launches previously required <b>hours of manual edits</b>{" "}
+            across pricing, messaging, and promotional UI, always under time
+            pressure and always <b>one missed file away</b> from an
+            inconsistent storefront.
+          </p>
+
+          <p className="leading-relaxed">
+            I rebuilt this as a <b>metaobject-driven system</b>: a single
+            global discount metaobject acts as <b>the switch</b> for the entire
+            storefront. Toggling it conditionally applies discounted pricing,
+            savings messaging, and promotional UI across price displays,
+            product forms, and collection pages, with <b>collection scoping</b>{" "}
+            so a sale can target specific parts of the catalog. Launch and
+            takedown went from hours to <b>minutes</b>.
           </p>
 
           <div className="grid gap-6 md:grid-cols-3">
@@ -179,15 +204,120 @@ export default function MudWtr({ cover }: Props) {
             <Metric label="Risk" value="Human error removed" />
           </div>
 
-          {/* Single wide image */}
-          <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
-            <Image
-              src="/work/mudwtr/sale-1.png"
-              alt=""
-              fill
-              className="object-cover"
+          {/* Architecture diagram: one switch fanning out to storefront surfaces */}
+          <svg
+            viewBox="0 0 720 360"
+            width="100%"
+            role="img"
+            aria-label="Architecture diagram: a global discount metaobject acts as one switch that drives pricing displays, savings messaging, and promotional UI, with collection scoping to target part of the catalog"
+          >
+            {/* switch node */}
+            <rect
+              x="200"
+              y="20"
+              width="320"
+              height="72"
+              rx="16"
+              fill="rgba(255,255,255,0.05)"
+              stroke="rgba(255,255,255,0.12)"
             />
-          </div>
+            <text
+              x="360"
+              y="52"
+              textAnchor="middle"
+              fill="#fff"
+              fontSize="21"
+              fontWeight="600"
+            >
+              global_discount metaobject
+            </text>
+            <text
+              x="360"
+              y="78"
+              textAnchor="middle"
+              fill="rgba(255,255,255,0.65)"
+              fontSize="17"
+            >
+              (one switch)
+            </text>
+
+            {/* connectors from the switch to the three surfaces */}
+            <path
+              d="M360 92 V136 M360 136 H120 V166 M360 136 V166 M360 136 H600 V166"
+              stroke="rgba(255,255,255,0.3)"
+              fill="none"
+            />
+            <polygon points="115,166 125,166 120,176" fill="rgba(255,255,255,0.3)" />
+            <polygon points="355,166 365,166 360,176" fill="rgba(255,255,255,0.3)" />
+            <polygon points="595,166 605,166 600,176" fill="rgba(255,255,255,0.3)" />
+
+            {/* target nodes */}
+            <rect
+              x="12"
+              y="176"
+              width="216"
+              height="56"
+              rx="14"
+              fill="rgba(255,255,255,0.05)"
+              stroke="rgba(255,255,255,0.12)"
+            />
+            <text x="120" y="211" textAnchor="middle" fill="#fff" fontSize="20">
+              Pricing displays
+            </text>
+
+            <rect
+              x="252"
+              y="176"
+              width="216"
+              height="56"
+              rx="14"
+              fill="rgba(255,255,255,0.05)"
+              stroke="rgba(255,255,255,0.12)"
+            />
+            <text x="360" y="211" textAnchor="middle" fill="#fff" fontSize="20">
+              Savings messaging
+            </text>
+
+            <rect
+              x="492"
+              y="176"
+              width="216"
+              height="56"
+              rx="14"
+              fill="rgba(255,255,255,0.05)"
+              stroke="rgba(255,255,255,0.12)"
+            />
+            <text x="600" y="211" textAnchor="middle" fill="#fff" fontSize="20">
+              Promotional UI
+            </text>
+
+            {/* side annotation */}
+            <path
+              d="M360 232 V276"
+              stroke="rgba(255,255,255,0.2)"
+              strokeDasharray="4 5"
+              fill="none"
+            />
+            <rect
+              x="150"
+              y="276"
+              width="420"
+              height="52"
+              rx="26"
+              fill="none"
+              stroke="rgba(255,255,255,0.12)"
+              strokeDasharray="5 6"
+            />
+            <text
+              x="360"
+              y="308"
+              textAnchor="middle"
+              fill="rgba(255,255,255,0.65)"
+              fontSize="18"
+            >
+              Collection scoping: target part of the catalog
+            </text>
+          </svg>
         </section>
       </div>
     </article>
