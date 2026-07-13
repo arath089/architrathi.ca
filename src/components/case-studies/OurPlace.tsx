@@ -41,7 +41,8 @@ export default function OurPlace({ cover }: Props) {
         <p className="max-w-3xl mx-auto mt-8 text-lg font-semibold leading-relaxed">
           Scaling a <b>high-growth DTC brand</b> through{" "}
           <b>revenue-driven engineering</b>, <b>celebrity launch execution</b>,
-          international expansion, and <b>headless commerce migration</b>.
+          international expansion, and{" "}
+          <b>a dual-renderer (Liquid + React) component system</b>.
         </p>
       </div>
 
@@ -169,23 +170,30 @@ export default function OurPlace({ cover }: Props) {
           </div>
         </section>
 
-        {/* Headless Migration */}
+        {/* Dual-Renderer Component System */}
         <section className="space-y-12">
-          <h2 className="text-3xl font-semibold">Shopify → Headless (React)</h2>
+          <h2 className="text-3xl font-semibold">
+            Dual-Renderer Component System (Liquid + React)
+          </h2>
 
           <p className="leading-relaxed">
-            Contributed to migration from traditional Shopify architecture to a{" "}
-            <b>React-based headless storefront</b> — improving{" "}
-            <b>performance</b>, flexibility, and campaign scalability.
+            Contributed to an embedded <b>dual-renderer component system</b>{" "}
+            inside Our Place’s Liquid theme, building React components with the{" "}
+            <b>@shopify/hydrogen-react</b> component library that rendered
+            alongside Liquid sections. This gave the team reusable, testable UI
+            components without leaving the theme architecture.
           </p>
 
           <ul className="pl-6 space-y-2 list-disc">
             <li>
-              <b>React section migration</b>
+              <b>
+                React components built with @shopify/hydrogen-react, rendered
+                inside the Liquid theme
+              </b>
             </li>
-            <li>Metafield alignment</li>
+            <li>Built and tested in a Figma-integrated Storybook</li>
             <li>
-              <b>Improved frontend control</b>
+              <b>Top-five contributor across ~650 commits</b>
             </li>
           </ul>
 

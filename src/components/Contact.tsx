@@ -26,7 +26,7 @@ export default function Contact() {
         </p>
         <div className="flex flex-wrap gap-3 mt-5">
           <a
-            href="mailto:architrathi808@gmail.com"
+            href="mailto:architrrathi@gmail.com"
             className="rounded-xl bg-white px-5 py-3 text-black font-medium hover:scale-[1.02] active:scale-[0.99] transition"
           >
             Email me
