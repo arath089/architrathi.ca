@@ -4,3 +4,27 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* TrustedTapes mobile marquee — compositor-driven; content is duplicated
+   exactly 2x so the -50% loop point is seamless */
+@keyframes tape-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.tape-marquee {
+  width: max-content;
+  will-change: transform;
+  animation: tape-marquee var(--tape-duration, 40s) linear infinite;
+}
+.tape-marquee--reverse {
+  animation-direction: reverse;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tape-marquee {
+    animation: none;
+  }
+}
