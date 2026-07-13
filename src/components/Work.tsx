@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { Dancing_Script } from "next/font/google";
 import { CASE_STUDIES } from "@/components/case-studies";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const cursive = Dancing_Script({ subsets: ["latin"], weight: ["700"] });
 
@@ -28,16 +29,8 @@ const wrapIdx = (i: number, len: number) => (i + len) % len;
 export default function Work() {
   const [active, setActive] = useState(0);
   const [open, setOpen] = useState<CaseStudyMeta | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
   const len = SLIDES.length;
-
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 767px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
 
   const spring = {
     type: "spring" as const,

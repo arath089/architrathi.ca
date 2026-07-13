@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { useMemo, useRef } from "react";
+import useIsMobile from "@/hooks/useIsMobile";
 
 type Brand = { name: string; src: string; href: string };
 
@@ -20,19 +21,27 @@ export default function TrustedTapes({
   angleB?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  const xA = useTransform(scrollYProgress, [0, 1], [0, distance]);
-  const xB = useTransform(scrollYProgress, [0, 1], [0, -distance * 1.08]);
+  // Mobile travel must fit the narrower 210vw tape: the tape only extends
+  // (210vw - 100vw) / 2 past each viewport edge, so |x| may never exceed
+  // 0.55 * viewport width. 160px (172.8px for row B) is safe down to 320px.
+  const travel = isMobile ? Math.min(distance, 160) : distance;
 
-  // ensure plenty of cards to fill extra-long mobile tapes
+  const xA = useTransform(scrollYProgress, [0, 1], [0, travel]);
+  const xB = useTransform(scrollYProgress, [0, 1], [0, -travel * 1.08]);
+
+  // ensure plenty of cards to fill the tapes; mobile needs far fewer since
+  // the tape is shorter and travels less
   const row = useMemo(() => {
     const base = items.length < 6 ? [...items, ...items] : items;
+    if (isMobile) return [...base, ...base].slice(0, 12);
     return [...base, ...base, ...base];
-  }, [items]);
+  }, [items, isMobile]);
 
   return (
     <section
@@ -54,27 +63,31 @@ export default function TrustedTapes({
           x={xA}
           angle={angleA}
           yClass="top-8 md:top-12"
-          widthClass="w-[360vw] md:w-[190vw]" // ← MUCH longer on mobile
+          widthClass="w-[210vw] md:w-[190vw]"
+          isMobile={isMobile}
         />
         <TapeRow
           items={row}
           x={xB}
           angle={angleB}
           yClass="bottom-8 md:bottom-12"
-          widthClass="w-[360vw] md:w-[190vw]"
+          widthClass="w-[210vw] md:w-[190vw]"
+          isMobile={isMobile}
         />
       </div>
 
-      {/* side fade to avoid hard cuts */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          maskImage:
-            "linear-gradient(to right, transparent, black 7%, black 93%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent, black 7%, black 93%, transparent)",
-        }}
-      />
+      {/* side fade to avoid hard cuts — skipped on mobile to save a composite pass */}
+      {!isMobile && (
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent, black 7%, black 93%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 7%, black 93%, transparent)",
+          }}
+        />
+      )}
     </section>
   );
 }
@@ -85,26 +98,30 @@ function TapeRow({
   angle,
   yClass,
   widthClass,
+  isMobile,
 }: {
   items: Brand[];
   x: MotionValue<number>; // MotionValue<number>
   angle: number;
   yClass: string;
   widthClass: string;
+  isMobile: boolean;
 }) {
   return (
-    <motion.div
+    <div
       className={`absolute left-1/2 -translate-x-1/2 ${yClass} ${widthClass}`}
-      style={{ rotate: angle, willChange: "transform" }}
+      // static rotation; translateZ(0) promotes the wrapper so it rasterizes once
+      style={{ transform: `rotate(${angle}deg) translateZ(0)` }}
     >
       <motion.div
         className="flex items-center rounded-full"
         style={{
           x,
-          gap: "clamp(18px, 4.2vw, 28px)",
+          willChange: "transform", // this is the layer that translates every frame
+          gap: isMobile ? 12 : "clamp(18px, 4.2vw, 28px)",
           background: "linear-gradient(180deg, #0E2F44, #0A2334)", // Arctic Navy gradient
-          padding: "clamp(12px, 3.6vw, 18px)",
-          boxShadow: "0 14px 36px rgba(10, 35, 52, 0.55)",
+          padding: isMobile ? 10 : "clamp(12px, 3.6vw, 18px)",
+          boxShadow: isMobile ? "none" : "0 14px 36px rgba(10, 35, 52, 0.55)",
           border: "1px solid rgba(186, 241, 255, 0.08)", // subtle icy edge
         }}
       >
@@ -118,27 +135,28 @@ function TapeRow({
             title={`Visit ${b.name}`}
             style={{
               background: "#fff", // white card
-              borderRadius: 20,
-              padding: "clamp(16px, 4.5vw, 28px)", // more inner space
+              borderRadius: isMobile ? 14 : 20,
+              padding: isMobile ? "10px 14px" : "clamp(16px, 4.5vw, 28px)",
               border: "1px solid rgba(0,0,0,.08)",
-              boxShadow:
-                "0 14px 28px rgba(0,0,0,.35), inset 0 1px 0 rgba(0,0,0,.06)",
+              boxShadow: isMobile
+                ? "inset 0 1px 0 rgba(0,0,0,.06)"
+                : "0 14px 28px rgba(0,0,0,.35), inset 0 1px 0 rgba(0,0,0,.06)",
             }}
           >
-            {/* keep original logo colors; bigger on mobile */}
+            {/* keep original logo colors */}
             <Image
               src={b.src}
               alt={b.name}
               width={420}
               height={120}
-              sizes="(max-width: 640px) 200px, 260px"
-              className="block object-contain w-auto h-11 md:h-12" // 44px mobile / 48px desktop
+              sizes="(max-width: 767px) 120px, 260px"
+              className="block object-contain w-auto h-8 md:h-12" // 32px mobile / 48px desktop
               draggable={false}
               loading="lazy"
             />
           </a>
         ))}
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
