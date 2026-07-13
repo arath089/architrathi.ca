@@ -2,6 +2,15 @@
 
 const projects = [
   {
+    name: "RMK Immigration",
+    short: "Production website for a regulated Canadian immigration consultancy.",
+    full: "Designed, built, and shipped the full production website for RMK Immigration, a regulated Canadian immigration consultancy (RCIC). Next.js frontend with Prismic CMS for editable content, SEO and structured metadata, Calendly booking integration, a service catalogue covering 20+ immigration services, and a contact pipeline. Live client work with a real business depending on it.",
+    tech: ["Next.js", "Prismic CMS", "Tailwind CSS", "Vercel"],
+    repo: "https://github.com/arath089/rmk-immigration",
+    live: "https://www.rmkimmigration.ca",
+    color: "bg-red-600/70 border-red-600",
+  },
+  {
     name: "Tirupati Security Business Website",
     short: "Corporate website built for a security services business.",
     full: "Designed and developed a modern corporate website for Tirupati Security Services. Built with a performance-first approach, structured React components, and subtle motion to elevate brand presence.",
@@ -88,7 +97,7 @@ export default function Projects() {
               duration-300
               hover:-translate-y-1
               hover:opacity-90
-              md:h-[320px]
+              md:min-h-[320px]
               ${index >= 4 ? "hidden md:block" : ""}
             `}
           >
