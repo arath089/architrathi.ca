@@ -70,7 +70,7 @@ type Link = {
   icon: ComponentType<SVGProps<SVGSVGElement>>;
 };
 const LINKS: Link[] = [
-  { href: "#top", label: "Home", icon: IconHome },
+  { href: "#hero", label: "Home", icon: IconHome },
   { href: "#what-i-do", label: "What I do", icon: IconSpark },
   { href: "#work", label: "Work", icon: IconWork },
   { href: "#about", label: "About", icon: IconInfo },
