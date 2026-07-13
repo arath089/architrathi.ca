@@ -11,14 +11,6 @@ type Props = {
   cover: string;
 };
 
-/*
-  TODO: drop real images into /public/work/hiya/ - the layout expects:
-    /work/hiya/collection-1.png  (wide, collection page redesign section)
-    /work/hiya/variant-a.png     (3-up grid, A/B/C test section)
-    /work/hiya/variant-b.png     (3-up grid, A/B/C test section)
-    /work/hiya/variant-c.png     (3-up grid, A/B/C test section)
-*/
-
 export default function Hiya({ cover }: Props) {
   return (
     <article className="relative text-white">
@@ -107,25 +99,47 @@ export default function Hiya({ cover }: Props) {
             <Metric label="Scope" value="Highest-traffic page" />
             <Metric label="Key Feature" value="Inline subscription ATC" />
             <Metric label="Variants" value="A/B/C simultaneous" />
-            <Metric label="Tooling" value="Intelligems" />
             <Metric label="Experiments Run" value="100+ across brands" />
             <Metric label="Architecture" value="Reusable card components" />
           </div>
 
-          {/* Single wide image */}
-          <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
-            <Image
-              src="/work/hiya/collection-1.png"
-              alt=""
-              fill
-              className="object-cover"
-            />
-          </div>
+          {/* Before / After */}
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="space-y-4">
+              <p className="text-sm font-semibold tracking-wider text-red-400 uppercase">
+                Before
+              </p>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            <ImageBlock src="/work/hiya/variant-a.png" />
-            <ImageBlock src="/work/hiya/variant-b.png" />
-            <ImageBlock src="/work/hiya/variant-c.png" />
+              <div className="relative overflow-hidden rounded-3xl">
+                <Image
+                  src="/work/hiya/collection-before.png"
+                  alt="Hiya collection page before redesign"
+                  width={2040}
+                  height={1764}
+                  quality={100}
+                  className="object-contain w-full h-auto"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <p className="text-sm font-semibold tracking-wider text-green-400 uppercase">
+                After
+              </p>
+
+              <div className="relative overflow-hidden rounded-3xl">
+                <video
+                  src="/work/hiya/hiya-new-collection.mp4"
+                  poster="/work/hiya/hiya-new-collection-poster.jpg"
+                  controls
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="object-contain w-full h-auto"
+                  aria-label="Hiya redesigned collection page with inline subscription add-to-cart"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
@@ -162,10 +176,3 @@ function Metric({ label, value }: { label: string; value: string }) {
   );
 }
 
-function ImageBlock({ src }: { src: string }) {
-  return (
-    <div className="relative w-full h-[450px] rounded-2xl overflow-hidden">
-      <Image src={src} alt="" fill className="object-cover" />
-    </div>
-  );
-}

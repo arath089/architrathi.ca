@@ -56,7 +56,7 @@ const PANELS = [
     bullets: [
       "Section schema your team can actually use",
       "App embeds, cart & checkout extensions",
-      "Hydrogen/Storefront API for dynamic bits",
+      "Storefront API for dynamic bits",
       "Metafield strategy & content models",
       "CI checks for theme quality & visual diffs",
     ],

@@ -68,6 +68,7 @@ export default function Olipop({ cover }: Props) {
               muted
               loop
               playsInline
+              preload="metadata"
               className="w-full rounded-2xl max-h-[700px]"
               style={{
                 filter: "brightness(1.1) contrast(1.05)",
@@ -79,6 +80,7 @@ export default function Olipop({ cover }: Props) {
               muted
               loop
               playsInline
+              preload="metadata"
               className="w-full mt-4 rounded-2xl max-h-[700px]"
             />
           </div>
@@ -120,9 +122,18 @@ export default function Olipop({ cover }: Props) {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <ImageBlock src="/work/olipop/camila-1.png" />
-            <ImageBlock src="/work/olipop/camila-2.png" />
-            <ImageBlock src="/work/olipop/camila-3.png" />
+            <ImageBlock
+              src="/work/olipop/camila-1.png"
+              alt="OLIPOP x Camila Cabello Real Love Makes Us campaign homepage"
+            />
+            <ImageBlock
+              src="/work/olipop/camila-2.png"
+              alt="OLIPOP x Camila Cabello campaign landing experience"
+            />
+            <ImageBlock
+              src="/work/olipop/camila-3.png"
+              alt="OLIPOP x Camila Cabello campaign storytelling imagery"
+            />
           </div>
 
           <div className="flex flex-col space-y-2 text-green-400 underline">
@@ -162,12 +173,18 @@ export default function Olipop({ cover }: Props) {
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <p className="mb-3 font-semibold text-red-400">Before</p>
-              <ImageBlock src="/work/olipop/swatch-before.png" />
+              <ImageBlock
+                src="/work/olipop/swatch-before.png"
+                alt="OLIPOP flavor swatches before the redesign"
+              />
             </div>
 
             <div>
               <p className="mb-3 font-semibold text-green-400">After</p>
-              <ImageBlock src="/work/olipop/swatch-after.png" />
+              <ImageBlock
+                src="/work/olipop/swatch-after.png"
+                alt="OLIPOP flavor swatches after the redesign with explicit labels"
+              />
             </div>
           </div>
         </section>
@@ -197,7 +214,7 @@ export default function Olipop({ cover }: Props) {
               <div className="relative overflow-hidden rounded-3xl">
                 <Image
                   src="/work/olipop/cart-before.png"
-                  alt="Cart before refactor"
+                  alt="OLIPOP cart before the refactor"
                   width={1600}
                   height={1200}
                   quality={100}
@@ -215,7 +232,7 @@ export default function Olipop({ cover }: Props) {
               <div className="relative overflow-hidden rounded-3xl">
                 <Image
                   src="/work/olipop/cart-after.png"
-                  alt="Cart after refactor"
+                  alt="OLIPOP cart after the refactor"
                   width={1600}
                   height={1200}
                   quality={100}
@@ -260,7 +277,7 @@ export default function Olipop({ cover }: Props) {
               <div className="relative overflow-hidden rounded-3xl">
                 <Image
                   src="/work/olipop/account-before.png"
-                  alt="Cart before refactor"
+                  alt="OLIPOP account portal before the redesign"
                   width={1600}
                   height={1200}
                   quality={100}
@@ -278,7 +295,7 @@ export default function Olipop({ cover }: Props) {
               <div className="relative overflow-hidden rounded-3xl">
                 <Image
                   src="/work/olipop/account-after.png"
-                  alt="Cart after refactor"
+                  alt="OLIPOP account portal after the redesign"
                   width={1600}
                   height={1200}
                   quality={100}
@@ -293,10 +310,10 @@ export default function Olipop({ cover }: Props) {
   );
 }
 
-function ImageBlock({ src }: { src: string }) {
+function ImageBlock({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="relative w-full h-[420px] rounded-2xl overflow-hidden">
-      <Image src={src} alt="" fill className="object-cover" />
+      <Image src={src} alt={alt} fill className="object-cover" />
     </div>
   );
 }

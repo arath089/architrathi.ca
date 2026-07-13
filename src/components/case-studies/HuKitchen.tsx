@@ -71,11 +71,13 @@ export default function HuKitchen({ cover }: Props) {
               label="Before"
               color="text-red-400"
               src="/work/hukitchen/pdp-before.png"
+              alt="Hu Kitchen product page before the refactor"
             />
             <BeforeAfter
               label="After"
               color="text-green-400"
               src="/work/hukitchen/pdp-after.png"
+              alt="Hu Kitchen product page after the modular refactor"
             />
           </div>
         </section>
@@ -103,7 +105,10 @@ export default function HuKitchen({ cover }: Props) {
             reduced automated audit flags across multiple testing tools.
           </p>
 
-          <ImageBlock src="/work/hukitchen/accessibility.png" />
+          <ImageBlock
+            src="/work/hukitchen/accessibility.png"
+            alt="Hu Kitchen storefront accessibility audit results"
+          />
         </section>
 
         {/* Bites Launch */}
@@ -148,6 +153,7 @@ export default function HuKitchen({ cover }: Props) {
               muted
               loop
               playsInline
+              preload="metadata"
               className="w-full rounded-2xl max-h-[700px]"
               style={{
                 filter: "brightness(1.1) contrast(1.05)",
@@ -181,7 +187,10 @@ export default function HuKitchen({ cover }: Props) {
             no performance regression.
           </p>
 
-          <ImageBlock src="/work/hukitchen/privacy.png" />
+          <ImageBlock
+            src="/work/hukitchen/privacy.png"
+            alt="OneTrust cookie consent implementation on Hu Kitchen"
+          />
         </section>
       </div>
     </article>
@@ -194,10 +203,12 @@ function BeforeAfter({
   label,
   color,
   src,
+  alt,
 }: {
   label: string;
   color: string;
   src: string;
+  alt: string;
 }) {
   return (
     <div className="space-y-4">
@@ -208,7 +219,7 @@ function BeforeAfter({
       <div className="relative overflow-hidden rounded-3xl">
         <Image
           src={src}
-          alt=""
+          alt={alt}
           width={1600}
           height={1200}
           quality={100}
@@ -219,10 +230,15 @@ function BeforeAfter({
   );
 }
 
-function ImageBlock({ src }: { src: string }) {
+function ImageBlock({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="relative w-full h-[420px] rounded-3xl overflow-hidden">
-      <Image src={src} alt="" fill className="object-contain md:object-cover" />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-contain md:object-cover"
+      />
     </div>
   );
 }

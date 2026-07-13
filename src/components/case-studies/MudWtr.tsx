@@ -104,6 +104,7 @@ export default function MudWtr({ cover }: Props) {
               muted
               loop
               playsInline
+              preload="metadata"
               aria-label="Screen recording of the product page carousel becoming interactive instantly after the fix"
             />
           </div>
@@ -185,6 +186,7 @@ export default function MudWtr({ cover }: Props) {
               muted
               loop
               playsInline
+              preload="metadata"
               aria-label="Screen recording of the Nourish variant selection flow across blend, size, and subscription"
             />
           </div>

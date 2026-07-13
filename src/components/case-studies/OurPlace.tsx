@@ -95,7 +95,7 @@ export default function OurPlace({ cover }: Props) {
             <div className="relative w-full h-[520px] rounded-2xl overflow-hidden md:col-span-2">
               <Image
                 src="/work/ourplace/selena-2.png"
-                alt=""
+                alt="Our Place x Selena Gomez launch campaign hero"
                 fill
                 className="object-contain md:object-cover"
               />
@@ -105,7 +105,7 @@ export default function OurPlace({ cover }: Props) {
             <div className="relative w-full h-[420px] rounded-2xl overflow-hidden">
               <Image
                 src="/work/ourplace/selena-1.png"
-                alt=""
+                alt="Our Place x Selena Gomez launch product page"
                 fill
                 className="object-contain md:object-cover"
               />
@@ -114,7 +114,7 @@ export default function OurPlace({ cover }: Props) {
             <div className="relative w-full h-[420px] rounded-2xl overflow-hidden">
               <Image
                 src="/work/ourplace/selena-3.png"
-                alt=""
+                alt="Our Place x Selena Gomez collaboration cookware collection"
                 fill
                 className="object-contain md:object-cover"
               />
@@ -164,9 +164,18 @@ export default function OurPlace({ cover }: Props) {
 
           {/* Two-column layout instead of 3 */}
           <div className="grid gap-6 md:grid-cols-3">
-            <ImageBlock src="/work/ourplace/upsell-1.png" />
-            <ImageBlock src="/work/ourplace/upsell-2.png" />
-            <ImageBlock src="/work/ourplace/upsell-3.png" />
+            <ImageBlock
+              src="/work/ourplace/upsell-1.png"
+              alt="Dynamic cart upsell showing contextual product recommendations"
+            />
+            <ImageBlock
+              src="/work/ourplace/upsell-2.png"
+              alt="Cart upsell with product-to-product mapping suggestions"
+            />
+            <ImageBlock
+              src="/work/ourplace/upsell-3.png"
+              alt="Checkout-integrated upsell increasing items per cart"
+            />
           </div>
         </section>
 
@@ -200,8 +209,8 @@ export default function OurPlace({ cover }: Props) {
           {/* Single wide image */}
           <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
             <Image
-              src="/work/ourplace/headless-1.png"
-              alt=""
+              src="/work/ourplace/dual-renderer-1.png"
+              alt="React components rendering alongside Liquid sections in the Our Place theme"
               fill
               className="object-cover"
             />
@@ -222,7 +231,7 @@ export default function OurPlace({ cover }: Props) {
           <div className="relative w-full h-[420px] rounded-2xl overflow-hidden">
             <Image
               src="/work/ourplace/au-2.png"
-              alt=""
+              alt="Our Place Australian storefront with localized pricing"
               fill
               className="object-cover"
             />
@@ -230,7 +239,7 @@ export default function OurPlace({ cover }: Props) {
           <div className="relative w-full h-[420px] rounded-2xl overflow-hidden">
             <Image
               src="/work/ourplace/au-1.png"
-              alt=""
+              alt="Our Place Australian store launch landing page"
               fill
               className="object-contain object-top"
             />
@@ -252,10 +261,10 @@ function Metric({ label, value }: { label: string; value: string }) {
   );
 }
 
-function ImageBlock({ src }: { src: string }) {
+function ImageBlock({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="relative w-full h-[450px] rounded-2xl overflow-hidden">
-      <Image src={src} alt="" fill className="object-cover" />
+      <Image src={src} alt={alt} fill className="object-cover" />
     </div>
   );
 }
