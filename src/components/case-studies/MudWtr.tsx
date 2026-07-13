@@ -133,6 +133,16 @@ export default function MudWtr({ cover }: Props) {
             orchestration, the storefront stays fast under real-world
             conditions, not just in lab scores.
           </p>
+
+          {/* Barba.js wordmark (official SVG from barba.js.org) */}
+          <div className="p-10 border rounded-2xl bg-white/5 border-white/10 md:p-16">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/work/mudwtr/barba.svg"
+              alt="Barba.js logo"
+              className="w-full h-auto"
+            />
+          </div>
         </section>
 
         {/* Nourish Re-architecture */}
