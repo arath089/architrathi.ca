@@ -194,18 +194,18 @@ export default function Work() {
             })}
           </div>
 
-          <div className="absolute inset-0 flex items-center justify-between px-2 pointer-events-none">
+          <div className="absolute inset-0 z-10 flex items-center justify-between px-2 pointer-events-none">
             <button
               aria-label="Previous"
               onClick={() => setActive((i) => wrapIdx(i - 1, len))}
-              className="grid w-10 h-10 transition rounded-full shadow pointer-events-auto place-items-center bg-white/95 text-zinc-900 hover:scale-105 active:scale-95"
+              className="grid w-10 h-10 text-xl transition rounded-full shadow pointer-events-auto place-items-center bg-white/95 text-zinc-900 hover:scale-105 active:scale-95"
             >
               ‹
             </button>
             <button
               aria-label="Next"
               onClick={() => setActive((i) => wrapIdx(i + 1, len))}
-              className="grid w-10 h-10 transition rounded-full shadow pointer-events-auto place-items-center bg-white/95 text-zinc-900 hover:scale-105 active:scale-95"
+              className="grid w-10 h-10 text-xl transition rounded-full shadow pointer-events-auto place-items-center bg-white/95 text-zinc-900 hover:scale-105 active:scale-95"
             >
               ›
             </button>
