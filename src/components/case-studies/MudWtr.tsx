@@ -116,8 +116,19 @@ export default function MudWtr({ cover }: Props) {
           </h2>
 
           <p className="leading-relaxed">
-            Implemented <b>Barba.js asset prefetching</b> so that navigating
-            between pages feels near-instant. Combined with{" "}
+            Implemented{" "}
+            <b>
+              <a
+                href="https://barba.js.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline transition-opacity underline-offset-4 hover:opacity-70"
+              >
+                Barba.js
+              </a>{" "}
+              asset prefetching
+            </b>{" "}
+            so that navigating between pages feels near-instant. Combined with{" "}
             <b>Core Web Vitals</b> work across image strategy and script
             orchestration, the storefront stays fast under real-world
             conditions, not just in lab scores.
