@@ -5,6 +5,7 @@ import Work from "@/components/Work";
 import Projects from "@/components/Projects";
 import Difference from "@/components/Difference";
 import About from "@/components/AboutTimeline";
+import CompanyTimeline from "@/components/CompanyTimeline";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -53,11 +54,12 @@ export default function Page() {
         ]}
       />
 
+      <CompanyTimeline />
       <WhatIDo />
       <Work />
       <Difference />
       <Projects />
-      <About count={3200} tryScrollSmoother={false} hueA={188} hueB={205} />
+      <About count={3650} tryScrollSmoother={false} hueA={188} hueB={205} />
       <Contact />
       <Footer />
     </main>

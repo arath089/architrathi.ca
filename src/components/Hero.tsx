@@ -195,10 +195,11 @@ export default function Hero() {
             <p className="max-w-2xl mt-6 text-base text-white md:text-lg">
               I’m a Frontend Engineer who likes making interfaces feel
               effortless. I build fast, accessible web experiences with React,
-              TypeScript, and Tailwind, with purposeful motion. Over 4+ years
-              at The Beyond Group I shipped consumer storefronts for brands
-              like Our Place, OLIPOP, MUDWTR, and Hu Kitchen. Based in
-              Vancouver, Canada.
+              TypeScript, and Tailwind, with purposeful motion. Currently
+              building the in-house commerce platform at Warner Music Group.
+              Previously, over 4+ years at The Beyond Group, I shipped consumer
+              storefronts for brands like Our Place, OLIPOP, MUDWTR, and Hu
+              Kitchen. Based in Vancouver, Canada.
             </p>
 
             {/* Cursive line */}

@@ -39,7 +39,7 @@ export default function Hiya({ cover }: Props) {
         </h1>
 
         <p className="max-w-3xl mx-auto mt-8 text-lg font-semibold leading-relaxed">
-          Leading the redesign of the{" "}
+          Led the redesign of the{" "}
           <b>highest-traffic collection experience</b> for a subscription-first
           children’s vitamin brand, with <b>conversion</b>,{" "}
           <b>experimentation</b>, and <b>accessibility</b> built in from the
@@ -90,7 +90,7 @@ export default function Hiya({ cover }: Props) {
           </p>
 
           <p className="leading-relaxed">
-            This was part of a broader experimentation practice: I have run{" "}
+            This was part of a broader experimentation practice: I ran{" "}
             <b>100+ Intelligems A/B experiments</b> across brands, covering PDP
             variants, purchase flows, and pricing displays.
           </p>

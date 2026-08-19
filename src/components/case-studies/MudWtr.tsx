@@ -40,7 +40,7 @@ export default function MudWtr({ cover }: Props) {
         </h1>
 
         <p className="max-w-3xl mx-auto mt-8 text-lg font-semibold leading-relaxed">
-          Owning <b>frontend performance</b>,{" "}
+          Owned <b>frontend performance</b>,{" "}
           <b>purchase-journey architecture</b>, and launch tooling for a
           high-growth functional beverage brand as{" "}
           <b>sole frontend engineer</b>.

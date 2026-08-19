@@ -22,6 +22,8 @@ const SLIDES: CaseStudyMeta[] = [
   { slug: "hu-kitchen", name: "Hu Kitchen", src: "/work/hukitchen.jpg" },
   { slug: "mudwtr", name: "MUD/WTR", src: "/work/mudwtr.jpg" },
   { slug: "hiya", name: "Hiya", src: "/work/hiya.jpg" },
+  // Hidden until there is shipped WMG work to show (also needs /work/wmg.jpg):
+  // { slug: "warner-music", name: "Warner Music Group", src: "/work/wmg.jpg" },
 ];
 
 const wrapIdx = (i: number, len: number) => (i + len) % len;

@@ -64,7 +64,7 @@ const EVENTS = [
     img: "/about/uottowa.jpg",
   },
   {
-    year: "2021 → 2026",
+    year: "2021 – June 2026",
     title: "The Beyond Group",
     body: "Grew from apprentice to Intermediate Software Developer. Built performant, accessible, and beautiful web experiences for high-growth brands.",
     img: "/about/tbg-1.webp",
@@ -72,8 +72,21 @@ const EVENTS = [
   {
     year: "",
     title: "",
-    body: "..... and the journey continues! Always learning, always building.",
+    body: "Closing an incredible chapter with the TBG team — five years of growth, great people, and work I'm proud of.",
     img: "/about/tbg.jpg",
+  },
+  {
+    year: "Aug 2026 – Present",
+    title: "Warner Music Group",
+    body: (
+      <>
+        Software Developer III at Warner Music Canada. Building and owning the
+        in-house Shopify commerce platform for WMG&apos;s artist stores.
+        <br />
+        ..... and the journey continues! Always learning, always building.
+      </>
+    ),
+    img: "/about/wmg.jpeg",
   },
 ];
 
@@ -101,7 +114,7 @@ export default function AboutTimeline({
 
     // MOBILE: fewer dots for smooth scroll; DESKTOP: your original count
     const effectiveCount = isMobile
-      ? Math.min(1200, Math.round(count * 0.32))
+      ? Math.min(1800, Math.round(count * 0.46))
       : count;
 
     const noise1 = createNoise2D(mulberry32(1337));
@@ -129,9 +142,9 @@ export default function AboutTimeline({
       if (isMobile) {
         // MOBILE: gradient fill (cheap) instead of box-shadow
         div.style.background = `radial-gradient(circle at 50% 50%,
-          hsla(${h}, 90%, 85%, .65) 0%,
-          hsla(${h}, 70%, 70%, .45) 45%,
-          hsla(${h}, 70%, 70%, 0) 70%)`;
+          hsla(${h}, 80%, 52%, .55) 0%,
+          hsla(${h}, 70%, 40%, .4) 45%,
+          hsla(${h}, 70%, 40%, 0) 70%)`;
       } else {
         // DESKTOP: your existing glow
         div.style.boxShadow = `0 0 0 .3px hsla(${h}, 70%, 70%, .55)`;
