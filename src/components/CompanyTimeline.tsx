@@ -30,8 +30,8 @@ const COMPANIES: Company[] = [
     years: "2021 – 2026",
     logo: "/about/tbg-1.webp",
     progression: [
-      "Apprentice Developer",
-      "Junior Developer",
+      "Apprentice Software Developer",
+      "Junior Software Developer",
       "Intermediate Software Developer",
     ],
   },
